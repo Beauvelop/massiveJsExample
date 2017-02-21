@@ -6,8 +6,13 @@ causes.name as causes_name
 from incidents
 join injuries on incidents.injury_id = injuries.id
 join affected_areas on injuries.affected_area_id = affected_areas.id
-join causes on causes.id = incidents.cause_id;
+join causes on causes.id = incidents.cause_id
+where causes.name = $2
+and incidents.us_state = $1
 
+
+-- for inserting into
+-- returning *;
 
 
 
